@@ -1,0 +1,312 @@
+/* 
+* @Author: anchen
+* @Date:   2017-05-04 09:32:31
+* @Last Modified by:   anchen
+* @Last Modified time: 2017-05-05 13:38:31
+*/
+@charset "UTF-8";
+/*css 初始化 */
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img { margin:0; padding:0; }
+fieldset, img,input,button { border:none; padding:0;margin:0;outline-style:none; }
+ul, ol { list-style:none; }
+input { padding-top:0; padding-bottom:0; font-family: "SimSun","宋体";}
+select, input { vertical-align:middle;}
+select, input, textarea { font-size:12px; margin:0; }
+textarea { resize:none; } /*防止拖动*/
+img {border:0;  vertical-align:middle; }  /*  去掉图片低测默认的3像素空白缝隙*/
+table { border-collapse:collapse; }
+body {
+    font:12px/150% Arial,Verdana,"\5b8b\4f53";
+    /*google不认12px以下的字体，低于12px自动默认12px*/
+    color:#666;
+    background:#fff
+}
+.clearfix:before,.clearfix:after {
+    content:"";
+    display:table;
+}
+.clearfix:after{clear:both;}
+.clearfix{
+    *zoom:1;/*IE/7/6*/
+}
+a {color:#666; text-decoration:none; }
+a:hover{color:#C81623;}
+h1,h2,h3,h4,h5,h6 {text-decoration:none;font-weight:normal;font-size:100%;}
+s,i,em{font-style:normal;text-decoration:none;}
+.col-red{color: #C81623!important;}/* !important权重最高 */
+
+/*公共类*/
+.w {  /*版心（可视区） 提取 */
+    width: 1210px;
+    margin:0 auto;
+
+}
+.fl {
+    float:left;
+}
+.fr {
+    float:right;
+}
+.al {
+    text-align:left
+}
+.ac {
+    text-align:center
+}
+.ar {
+    text-align:right
+}
+.hide {
+    display:none
+}
+/*  头部导航开始 */
+.shortcut {
+    height: 30px;
+    line-height: 30px;/* 垂直居中，行高等于高 */
+    background-color: #f1f1f1;
+    width:100%px;
+    
+}
+.dt,
+.w .fore {
+    padding: 0 25px 0 10px;
+    position:relative;
+    } 
+.dt i,
+.fore i {
+    font:400 15px/15px "宋体";
+    /* 1、简写时，font-size和line-height只能通过斜杠/组成一个值，不能分开写
+    2、顺序不能改变.这种简写方法只有在同时指定font-size和font-family属性时才起作用。而且，如果你没有设定font-weight, font-style, 以及 font-varient ，他们会使用缺省值 */
+    position:absolute;
+  top:14px;/*14下 10上*/
+  right:5px; 
+  height:8px; 
+  width:16px;
+  overflow:hidden;
+}
+.dt s,
+.fore s {
+    /* s del i u bm em b 都属于行内样式，没有大小 */ 
+    position:absolute;
+    /* 绝对定位，脱离文档流，可定大小了，根据父类，用top,right,top,bottom等属性定位,如果没有设定top,left
+        那么会安标准流排在上一个兄弟合子的下面
+    子绝父相
+    绝对定位元素的任何祖先元素没有进行任何的“relative”或者“absolute”设置，那么绝对定位的元素的参考物就是html
+
+    静态定位(static) ：
+
+      static，无特殊定位，它是html元素默认的定位方式，即我们不设定元素的position属性时默认的position值就是static，它遵循正常的文档流对象，对象占用文档空间，该定位方式下，top、right、bottom、left、z-index等属性是无效的。 
+    相对定位（relative）
+        相对父定位相对的是它原本在文档流中的位置而进行的偏移
+        它的top/left/right/bottom属性是生效的，不能设置大小
+
+    固定定位(fixed)：
+
+       fixed定位，又称为固定定位，它和absoult定位一样，都脱离了文档流，并且能够根据top、right、left、bottom属性进行定位，但不同的是fixed是根据窗口为原点进行偏移定位的，也就是说它不会根据滚动条的滚动而进行偏移
+    *
+    */
+   
+      top:-9px;/*-9下 4上*/
+   
+}
+.fr li {
+    float:left;
+    padding:0 10px;
+}
+.fr .line {
+    width:1px;
+    height:12px;
+    background-color:#ddd;
+    margin-top: 10px;
+    padding:0;
+}
+.w .tel-jd {
+    padding: 0 25px 0 20px;
+}
+.tel {
+    position:absolute;
+    width:15px;
+    height:20px;
+    top:5px;
+    left:4px;
+    background: url(../image/sprite.png) no-repeat ;
+        /*  background: color url() no-repeat fixed top
+            #FFF 背景色：（颜色值，背景图片没有覆盖的地方，或者没有背景图片时表现的背景色）
+            image 背景图片：（这里是图片的地址）
+            no-repeat 是否重复：（图片小于容器的大小时，默认会重复排列图片以填满容器，no-repeat表示不重复，只有这个时候后面的定位坐标才有用。）
+            fixed 背景是否随容器滚动：（有两个可选值，scroll滚动，fixed不滚动，默认是scroll）
+            x y 背景图像的定位：（注意，只有在no-repeat下定位才有意义。这个就是今天要讲的重点）
+            
+            background-color
+            background-position
+            background-size
+            background-repeat
+            background-origin
+            background-clip
+            background-attachment
+            background-image
+            */
+}
+.tel:hover {
+    background-position: 0 -25px;
+        /*设置背景图像的位置
+            background-position : length  length 
+                length:x% y% / xpos ypos
+                    长度值，比如px、em、rem等
+                    百分值%
+
+            background-position : position  position 
+                position:
+                    top left
+                    top center
+                    top right
+                    center left
+                    center center
+                    center right
+                    bottom left
+                    bottom center
+                    bottom right
+                    如果您仅规定了一个关键词，那么第二个值将是"center"。
+
+                    */ 
+}
+/*顶部end*/
+/*topbannerStart*/
+.banner {
+    background-color: #8a25c6;
+}
+.banner .w {
+    position:relative;
+}
+.close-banner {
+    position:absolute;
+    width:19px;
+    height:19px;
+    top: 10px;
+    right:0;
+    background:url(../image/close.png) no-repeat;
+}
+.close-banner:hover {
+    background-position: bottom;
+}
+
+.loge {
+    position: relative;
+    width: 360px;
+    height: 75px;
+    /*background-color: pink;*/
+    float: left;
+    padding-top: 25px;
+    background: url(../image/logo.png) 0 25px no-repeat;
+}
+.jd-a   {
+    display: block;
+    width: 270px;
+    height: 60px;
+    /*text-indent: -2000;
+    缩进元素中的首行文本。
+    注释：允许使用负值。如果使用负值，那么首行会被缩进到左边。
+    继承性：Yes
+    text-indent只用于div，p这样的元素上，像image、input、inline-block、inline元素绝对不用
+    text-indent的值如果子元素也要用到父元素的值，用px单位，而绝不用em
+    */
+}
+.serach {
+    width: 538px;
+    height: 75px;
+    background-color: purple;
+    float: left;
+    padding-top: 25px;
+}
+.car {
+    width: 139px;
+    height: 34px;
+    background-color: blue;
+    float: right;
+    margin: 25px 65px 0 0;
+}
+.jd1111 {
+    width: 180px;
+    height: 80px;
+    /*background-color: pink;*/
+    position: absolute;
+    top: 10px;
+    right: 11px;
+    background: url(../image/dong.gif);
+}
+.jd11-a {
+    width: 180px;
+    height: 80px;
+    display: block;
+}
+/*浮动的目的：可以让多个块级元素放到一行上
+  清除浮动的目的：解决父合子高度为0的问题
+  6种清除方法：
+    额外标签法
+         .clearfix{
+            clear: both;
+        }
+        最后添加一合子<div class="clearfix"></div>
+    使用:after 伪元素
+        新浪使用方式：
+            .clearfix:after{
+                content:'';
+                display:block;
+                clear:both;
+                height:0;
+                visibility:hidden;
+            }
+            .clearfix{兼容IE
+                zoom:1;
+            }
+            在父合上加上这个class
+
+    给父元素定高
+
+    利用overflow:hidden;属性,触发bfc模式，就不用清除浮动
+        在父合class
+            .outer{
+                width:300px;
+                overflow:hidden;
+                zoom:1;
+            }
+    父元素浮动
+        .outer{
+            width:300px;
+            float:left;
+        }
+    父元素处于绝对定位
+        .outer{
+            position:absolute;
+        }
+ 总结：清除浮动分两大类：
+    一：在父合子中最后添加一合子
+        使用额外标签法和after 为元素
+    二：在父合子class中使用
+        overflow:hidden 属性（子合子不能超出父合子（定位），超出的部分会覆盖掉）
+        父元素浮动
+        父元素处于绝对定位
+    清除浮动真正的叫法是闭合浮动，前后加清除,在父class（淘宝、小米）
+        .clearfix:before,
+        .clearfix:after {
+            display:table;
+            content:'';
+        }
+        .clearfix:after {
+            clear:both;
+        }
+        .clearfix {
+            zoom:1;
+        }
+*/
+.clearfix:before,
+.clearfix:after {
+    display:table;
+    content:'';
+}
+.clearfix:after {
+    clear:both;
+}
+.clearfix {
+    zoom:1;
+}
